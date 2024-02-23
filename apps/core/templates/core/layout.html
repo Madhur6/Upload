@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{% static 'core/styles.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <section class="jumbotron jumbotron-fluid bg-light">
+            <div class="container">
+                <h2 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" >Welcome to 'Upload'</h2>
+                <p class="lead">Upload your <span style="color: rgb(53, 255, 53); font-weight: bold;">scanned pdfs </span>here... </p>
+                <div>
+                    <a href="{% url 'upload_file' %}"> upload pdf </a>
+                </div>
+            </div>
+        </section>
+        <div class="card">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

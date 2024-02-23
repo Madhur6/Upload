@@ -1,0 +1,24 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="text-center">
+    <h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"> Your Files </h1>
+    <hr>
+    <div class="row p-3">
+        {% for file in files %}
+        <div class="card p-3 m-3 file_card">
+            <p style="border: 1px solid gray; border-radius: 9px; height: 50px; overflow-y: auto;">{{ file.file.name|slice:"15:" }}</p>
+            <hr>
+            <div class="card-footer">
+                <a href="{% url 'Extract' file_id=file.id %}" class="btn btn-sm btn-success"> extract </a>
+            </div>
+        </div>
+        {% empty %}
+        <p> No files uploaded... </p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

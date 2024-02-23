@@ -1,0 +1,25 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="text-center">
+    <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"> Upload Files </h3>
+    <hr>
+    <div class="p-2">
+        <form action="{% url 'upload_file' %}" method="post", enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group border">
+                <label for="files"> choose your file: </label>
+                {{form}}
+            </div>
+            <div class="mt-2">
+                <button type="submit" class="btn btn-sm btn-success"> upload </button>
+            </div>
+        </form>
+    </div>
+</div>
+<a href="{% url 'index' %}" class="text-center mt-3 border rounded" style="text-decoration: none; color: steelblue;"> &laquo; go back &raquo; </a>
+
+
+{% endblock %}
